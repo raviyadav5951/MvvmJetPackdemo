@@ -3,25 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/repoListFragment">
+    app:startDestination="@id/movieListFragment">
 
     <fragment
-        android:id="@+id/repoListFragment"
-        android:name="com.ankit.trendinggit.view.ui.repolist.RepoListFragment"
-        android:label="Trending List"
-        tools:layout="@layout/fragment_repo_list">
+        android:id="@+id/movieListFragment"
+        android:name="com.askfortricks.mvvmjetpackdemo.fragments.MovieListFragment"
+        android:label="Movie List"
+        tools:layout="@layout/fragment_movie_list">
         <action
             android:id="@+id/action_repoListFragment_to_repoDetailFragment"
-            app:destination="@id/repoDetailFragment" />
+            app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/repoDetailFragment"
-        android:name="com.ankit.trendinggit.view.ui.repodetail.RepoDetailFragment"
-        android:label="RepoDetailFragment">
-        <argument
-            android:name="url"
-            android:defaultValue="https://www.github.com"
-            app:argType="string" />
+        android:id="@+id/movieDetailFragment"
+        android:name="com.askfortricks.mvvmjetpackdemo.fragments.MovieDetailFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail">
     </fragment>
 
 
