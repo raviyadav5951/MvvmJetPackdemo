@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/repo_list_movie"
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repo_list_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{safeUnbox(viewmodel.dataLoading)? View.GONE : View.VISIBLE}"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="No list to display"
-        android:textSize="18sp" />
-</RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{safeUnbox(viewmodel.dataLoading)? View.VISIBLE : View.GONE}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No list to display"
+            android:textSize="18sp"
+            android:visibility="@{safeUnbox(viewmodel.empty)? View.GONE : View.VISIBLE}"/>
+    </RelativeLayout>
+</layout>
