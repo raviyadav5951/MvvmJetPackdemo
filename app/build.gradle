@@ -23,6 +23,11 @@ android {
     dataBinding {
         enabled true
     }
+    kotlinOptions { jvmTarget = "1.8" }
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
 }
 
 dependencies {
