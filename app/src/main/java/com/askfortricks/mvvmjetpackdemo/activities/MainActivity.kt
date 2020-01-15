@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         ApiControllers.getInstance()?.callGetTopRatedMoviesApi { isSuccess, response ->
 
             if (isSuccess) {
-                response?.results
-                Log.e("answer", "results size==" + response?.results?.size)
+                response?.movies
+                Log.e("answer", "results size==" + response?.movies?.size)
 
             } else {
 

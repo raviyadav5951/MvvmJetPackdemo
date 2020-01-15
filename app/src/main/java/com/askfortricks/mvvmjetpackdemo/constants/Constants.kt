@@ -1,6 +1,8 @@
 package com.askfortricks.mvvmjetpackdemo.constants
 
 class Constants {
+    //Movie list response :
+//    http://jsoneditoronline.org/?id=ae1fce6a5e4c4f06a9f8e80ad9b0ab92
     companion object {
         //Main Host Url to access apis
         const val BASE_URL = "https://api.themoviedb.org/3/"

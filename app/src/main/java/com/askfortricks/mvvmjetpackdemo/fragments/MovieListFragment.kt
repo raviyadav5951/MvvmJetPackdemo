@@ -6,9 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.askfortricks.mvvmjetpackdemo.adapter.MovieListAdapter
 import com.askfortricks.mvvmjetpackdemo.api.ApiControllers
+import com.askfortricks.mvvmjetpackdemo.databinding.FragmentMovieListBinding
 
-class MovieListFragment : Fragment(){
+class MovieListFragment : Fragment() {
+
+    private lateinit var movieListDataBinding:FragmentMovieListBinding
+    private lateinit var movieListAdapter:MovieListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,16 +26,5 @@ class MovieListFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*ApiControllers.getInstance().callGetTopRatedMoviesApi { isSuccess, response ->
-
-            if (isSuccess) {
-                response?.results
-                Log.e("answer","results size=="+response?.results?.size)
-
-            } else {
-
-                Log.e("answer","failed")
-            }
-        }*/
     }
 }
