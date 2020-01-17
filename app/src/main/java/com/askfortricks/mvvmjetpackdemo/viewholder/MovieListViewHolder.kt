@@ -1,6 +1,5 @@
 package com.askfortricks.mvvmjetpackdemo.viewholder
 
-import android.view.View
 import androidx.core.os.bundleOf
 import androidx.databinding.ViewDataBinding
 import androidx.navigation.findNavController
@@ -10,13 +9,17 @@ import com.askfortricks.mvvmjetpackdemo.BR
 import com.askfortricks.mvvmjetpackdemo.R
 import com.askfortricks.mvvmjetpackdemo.constants.Constants
 import com.askfortricks.mvvmjetpackdemo.data_models.Movie
-import com.askfortricks.mvvmjetpackdemo.data_models.MovieList
+import com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel
 import kotlinx.android.synthetic.main.fragment_movie_detail.view.*
+import kotlinx.android.synthetic.main.item_movies.view.*
 
 //dataBinding will automatically assign the data to each view using the variable we've defined
 //in item_movies.xml
 
-class MovieListViewHolder(private val dataBinding: ViewDataBinding):
+class MovieListViewHolder(
+    private val dataBinding: ViewDataBinding,
+    movieListViewModel: MovieListViewModel
+):
     RecyclerView.ViewHolder(dataBinding.root) {
 
     //We will  directly assign the data using the model class object instead of traditional approach-
@@ -25,17 +28,20 @@ class MovieListViewHolder(private val dataBinding: ViewDataBinding):
 
 
 
-    val movie_poster=itemView.img_movie_poster
-    fun setUpMovieList(movieListData: Movie) {
+    val movie_poster=itemView.img_poster
+    fun setUpMovieList(movieListData: Movie?) {
 
         //attached the object with binding variable.
         dataBinding.setVariable(BR.itemMovie, movieListData)
         dataBinding.executePendingBindings()
 
-        movie_poster.load(Constants.BASE_URL_IMAGE_ORIGINAL+movieListData.poster_path)
+        //to display image we are using COIL kotlin library
+        movie_poster.load(Constants.BASE_URL_IMAGE_ORIGINAL+movieListData?.poster_path)
+
+
         itemView.setOnClickListener {
             //using kotlin-ktx
-            val bundle= bundleOf("imageUrl" to movieListData.poster_path)
+            val bundle= bundleOf("bundlePosterUrl" to movieListData?.poster_path)
             itemView.findNavController().navigate(R.id.action_movieListFragment_to_movieDetailFragment, bundle)
 
         }

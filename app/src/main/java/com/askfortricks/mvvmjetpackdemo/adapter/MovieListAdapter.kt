@@ -14,21 +14,28 @@ import com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel
 class MovieListAdapter(private val movieListViewModel: MovieListViewModel) :
     RecyclerView.Adapter<MovieListViewHolder>() {
 
-    var movieList: List<Movie> = emptyList()
+    var movieList: List<Movie>? = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
         val inflater=LayoutInflater.from(parent.context)
         val dataBinding=ItemMoviesBinding.inflate(inflater,parent,false)
-        return MovieListViewHolder(dataBinding)
+        return MovieListViewHolder(dataBinding,movieListViewModel)
     }
 
     //this is equivalen to return the movieList.size
-    override fun getItemCount(): Int=movieList.size
+    override fun getItemCount(): Int{
+        return movieList?.size ?: 0
+    }
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
         //setUpMovieList will pass the object to MovieListViewHolder
-        holder.setUpMovieList(movieList[position])
+        holder.setUpMovieList(movieList?.get(position))
     }
 
+    //this method will be called when api returns the list.
+    fun updateRepoList(repoList: List<Movie>?) {
+        this.movieList = repoList
+        notifyDataSetChanged()
+    }
 
 }

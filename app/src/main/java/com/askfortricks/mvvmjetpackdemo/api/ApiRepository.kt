@@ -8,16 +8,16 @@ import retrofit2.Response
 /**
  * This class will contain all the api calls which we will call using getInstance.
  */
-class ApiControllers{
+class ApiRepository{
 
 
     //Equivalent of getInstance method that we call in Java before calling any method of the class
     companion object{
-        private var INSTANCE:ApiControllers?=null
+        private var INSTANCE:ApiRepository?=null
 
-        fun getInstance():ApiControllers?{
+        fun getInstance():ApiRepository?{
 
-            ApiControllers().apply {
+            ApiRepository().apply {
                 INSTANCE=this
             }
             return INSTANCE
