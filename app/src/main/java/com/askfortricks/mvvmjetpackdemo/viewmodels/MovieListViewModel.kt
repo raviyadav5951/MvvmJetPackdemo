@@ -1,24 +1,35 @@
 package com.askfortricks.mvvmjetpackdemo.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.askfortricks.mvvmjetpackdemo.api.ApiControllers
-import com.askfortricks.mvvmjetpackdemo.data_models.Result
+import com.askfortricks.mvvmjetpackdemo.api.ApiRepository
+import com.askfortricks.mvvmjetpackdemo.data_models.Movie
 import com.askfortricks.mvvmjetpackdemo.foundations.BaseViewModel
 
 class MovieListViewModel :BaseViewModel(){
 
-    // todo :populate list and pass to adapter for displaying in recycler view.
-
-    val movieListLive = MutableLiveData<List<Result>>()
+    //we will be setting observer on this list
+    var movieListLive = MutableLiveData<List<Movie>>()
 
     fun fetchMovieList() {
         dataLoading.value = true
-        ApiControllers.getInstance()?.callGetTopRatedMoviesApi { isSuccess, response ->
+        ApiRepository.getInstance()?.callGetTopRatedMoviesApi { isSuccess, response ->
             dataLoading.value = false
             if (isSuccess) {
-                movieListLive.value = response?.results
-                empty.value = false
-            } else {
+
+                if(response==null || response.results.isEmpty())
+                {
+                    movieListLive.value = response?.results
+                    empty.value = true
+                }
+                else{
+                    movieListLive.value = response?.results
+                    empty.value = false
+                }
+
+            }
+            else {
+                Log.e("api","is success =false")
                 empty.value = true
             }
         }

@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -50,4 +50,12 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+
+    //for image loading new library it kotlin
+    //https://coil-kt.github.io/coil/
+    implementation("io.coil-kt:coil:0.9.1")
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03"
+    // Databinding compiler
+    kapt 'com.android.databinding:compiler:3.2.0-alpha10'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 }

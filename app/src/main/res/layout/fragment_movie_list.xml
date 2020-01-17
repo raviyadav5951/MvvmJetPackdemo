@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/repo_list_movie"
+            android:id="@+id/movie_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="@{safeUnbox(viewmodel.dataLoading)? View.GONE : View.VISIBLE}"/>
@@ -35,6 +35,6 @@
             android:layout_centerInParent="true"
             android:text="No list to display"
             android:textSize="18sp"
-            android:visibility="@{safeUnbox(viewmodel.empty)? View.GONE : View.VISIBLE}"/>
+            android:visibility="@{safeUnbox(viewmodel.empty)? View.VISIBLE : View.GONE}"/>
     </RelativeLayout>
-</layout>
+    </layout>

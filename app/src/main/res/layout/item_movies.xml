@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+    <import type="android.view.View" />
+
+    <variable
+        name="itemMovie"
+        type="com.askfortricks.mvvmjetpackdemo.data_models.Movie" />
+    </data>
+
+<!--    We will  directly assign the data using the model class object instead of traditional approach-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/movies_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="72dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_poster"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingRight="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{itemMovie.title}"
+                />
+
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="16dp"
+                android:textColor="@android:color/black"
+                android:text="@{itemMovie.release_date}"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:paddingRight="16dp"
+                android:textColor="@android:color/black"
+                android:text="@{itemMovie.overview}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/rating_image"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/btn_star"
+                android:tint="@color/colorAccent" />
+
+
+            <!-- safeUnbox done to handle the worst cases of null from api.            -->
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                tools:text="5.0"
+                android:text="@{Double.toString(safeUnbox(itemMovie.vote_average))}"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
