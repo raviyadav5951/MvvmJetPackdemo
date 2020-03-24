@@ -6,7 +6,7 @@
 
     <variable
         name="itemMovie"
-        type="com.askfortricks.mvvmjetpackdemo.data_models.Movie" />
+        type="com.askfortricks.mvvmjetpackdemo.model.Movie" />
     </data>
 
 <!--    We will  directly assign the data using the model class object instead of traditional approach-->

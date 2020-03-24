@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel" />
+            type="com.askfortricks.mvvmjetpackdemo.viewmodel.MovieListViewModel" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

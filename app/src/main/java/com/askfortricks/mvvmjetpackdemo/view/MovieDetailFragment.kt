@@ -1,4 +1,4 @@
-package com.askfortricks.mvvmjetpackdemo.fragments
+package com.askfortricks.mvvmjetpackdemo.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

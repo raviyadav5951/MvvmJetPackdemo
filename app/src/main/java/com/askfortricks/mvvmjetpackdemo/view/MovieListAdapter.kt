@@ -1,12 +1,12 @@
-package com.askfortricks.mvvmjetpackdemo.adapter
+package com.askfortricks.mvvmjetpackdemo.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.askfortricks.mvvmjetpackdemo.data_models.Movie
+import com.askfortricks.mvvmjetpackdemo.model.Movie
 import com.askfortricks.mvvmjetpackdemo.databinding.ItemMoviesBinding
-import com.askfortricks.mvvmjetpackdemo.viewholder.MovieListViewHolder
-import com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel
+import com.askfortricks.mvvmjetpackdemo.viewmodel.MovieListViewModel
+import com.askfortricks.mvvmjetpackdemo.view.MovieListViewHolder
 
 //Compare this class with this github project
 //https://github.com/raviyadav5951/VolleyWithGsonDemo/blob/master/app/src/main/java/com/askfortrciks/volleywithgsondemo/adapter/MoviesRecyclerAdapter.java
