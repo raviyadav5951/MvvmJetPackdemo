@@ -1,9 +1,9 @@
-package com.askfortricks.mvvmjetpackdemo.viewmodels
+package com.askfortricks.mvvmjetpackdemo.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.askfortricks.mvvmjetpackdemo.api.ApiRepository
-import com.askfortricks.mvvmjetpackdemo.data_models.Movie
+import com.askfortricks.mvvmjetpackdemo.model.Movie
 import com.askfortricks.mvvmjetpackdemo.foundations.BaseViewModel
 
 class MovieListViewModel :BaseViewModel(){

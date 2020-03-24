@@ -1,6 +1,6 @@
 package com.askfortricks.mvvmjetpackdemo.api
 
-import com.askfortricks.mvvmjetpackdemo.data_models.MovieList
+import com.askfortricks.mvvmjetpackdemo.model.MovieList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +29,7 @@ class ApiRepository{
     //We have returned the whole function result type which will return two things
     //to the caller function.
 
-    fun callGetTopRatedMoviesApi(onResult:(isSuccess: Boolean,response:MovieList?)->Unit){
+    fun callGetTopRatedMoviesApi(onResult:(isSuccess: Boolean,response: MovieList?)->Unit){
 
         RestApiClient.instance.getMovieListFromServer().enqueue(object : Callback<MovieList> {
             override fun onResponse(call: Call<MovieList>?, response: Response<MovieList>?) {

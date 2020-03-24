@@ -1,4 +1,4 @@
-package com.askfortricks.mvvmjetpackdemo.fragments
+package com.askfortricks.mvvmjetpackdemo.view
 
 import android.os.Bundle
 import android.util.Log
@@ -11,15 +11,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.askfortricks.mvvmjetpackdemo.adapter.MovieListAdapter
 import com.askfortricks.mvvmjetpackdemo.databinding.FragmentMovieListBinding
-import com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel
+import com.askfortricks.mvvmjetpackdemo.viewmodel.MovieListViewModel
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 
 class MovieListFragment : Fragment() {
 
     private lateinit var movieListDataBinding:FragmentMovieListBinding
-    private lateinit var movieListAdapter:MovieListAdapter
+    private lateinit var movieListAdapter: MovieListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +46,8 @@ class MovieListFragment : Fragment() {
     private fun setupAdapter() {
         val viewModel=movieListDataBinding.viewmodel
         if(viewModel!=null){
-            movieListAdapter = MovieListAdapter(viewModel) //it is viewModel (which is not null)
+            movieListAdapter =
+                MovieListAdapter(viewModel) //it is viewModel (which is not null)
             val layoutManager = LinearLayoutManager(activity)
             movie_list.layoutManager = layoutManager
             movie_list.addItemDecoration(DividerItemDecoration(activity, layoutManager.orientation))

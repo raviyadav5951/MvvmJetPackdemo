@@ -1,4 +1,4 @@
-package com.askfortricks.mvvmjetpackdemo.viewholder
+package com.askfortricks.mvvmjetpackdemo.view
 
 import androidx.core.os.bundleOf
 import androidx.databinding.ViewDataBinding
@@ -8,9 +8,8 @@ import coil.api.load
 import com.askfortricks.mvvmjetpackdemo.BR
 import com.askfortricks.mvvmjetpackdemo.R
 import com.askfortricks.mvvmjetpackdemo.constants.Constants
-import com.askfortricks.mvvmjetpackdemo.data_models.Movie
-import com.askfortricks.mvvmjetpackdemo.viewmodels.MovieListViewModel
-import kotlinx.android.synthetic.main.fragment_movie_detail.view.*
+import com.askfortricks.mvvmjetpackdemo.model.Movie
+import com.askfortricks.mvvmjetpackdemo.viewmodel.MovieListViewModel
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 //dataBinding will automatically assign the data to each view using the variable we've defined

@@ -1,4 +1,4 @@
-package com.askfortricks.mvvmjetpackdemo.data_models
+package com.askfortricks.mvvmjetpackdemo.model
 
 
 data class MovieList(

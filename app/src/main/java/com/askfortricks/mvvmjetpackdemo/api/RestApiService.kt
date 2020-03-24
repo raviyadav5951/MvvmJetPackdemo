@@ -1,7 +1,7 @@
 package com.askfortricks.mvvmjetpackdemo.api
 
 import com.askfortricks.mvvmjetpackdemo.constants.Constants
-import com.askfortricks.mvvmjetpackdemo.data_models.MovieList
+import com.askfortricks.mvvmjetpackdemo.model.MovieList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

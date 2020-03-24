@@ -1,4 +1,4 @@
-package com.askfortricks.mvvmjetpackdemo.activities
+package com.askfortricks.mvvmjetpackdemo.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
